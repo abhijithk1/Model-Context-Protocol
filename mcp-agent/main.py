@@ -87,6 +87,17 @@ async def run_agent(user_query: str):
     except Exception as e:
         print(f"Error: Agent execution failed: {str(e)}")
 
+async def main():
+    while True:
+        try:
+            user_prompt = input("\n\nAsk something (or type 'exit' to quit): ")
+            if user_prompt.lower() == "exit":
+                print("Exiting...")
+                break
+            await run_agent(user_prompt)
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            break
+
 if __name__ == "__main__":
-    user_prompt = input("Ask something: ")
-    asyncio.run(run_agent(user_prompt))
+    asyncio.run(main())
