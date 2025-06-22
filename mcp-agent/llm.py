@@ -14,7 +14,6 @@ logger = logging.getLogger(__name__)
 provider = os.getenv("LLM_PROVIDER", "gemini")
 
 LLM_LIST = {
-    # "openai" : ChatOpenAI(model_name="gpt-4", temperature=0.0),
     "gemini" : ChatGoogleGenerativeAI(
     model="gemini-2.0-flash",
     temperature=0,

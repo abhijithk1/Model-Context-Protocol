@@ -11,7 +11,7 @@ async def list_tools():
         })
         return res.json()["result"]["tools"]
 
-async def call_tool(tool_name, input_data):
+async def call_tool(tool_name, arguments):
     async with httpx.AsyncClient() as client:
         res = await client.post(GATEWAY_URL, json={
             "jsonrpc": "2.0",
@@ -19,7 +19,7 @@ async def call_tool(tool_name, input_data):
             "method": "tools/call",
             "params": {
                 "name": tool_name,
-                "arguments": input_data
+                "arguments": arguments
             }
         })
         return res.json()["result"]
