@@ -4,6 +4,12 @@ MCP is an open protocol that standardizes how applications provide context to LL
 
 ---
 
+# AI Agent System with MCP Gateway
+
+![alt text](image.png)
+
+---
+
 ## Prerequisite
 - Python `3.10` or higher installed.
 
@@ -73,16 +79,33 @@ $ python gateway.py
 ```
 
 #### Run the MCP Agent
+
+1. Go to the MCP agent directory.
    
 ```bash
 $ cd mcp-agent
+```
 
+2. Create a `.env` file
+
+```bash
+LLM_PROVIDER=gemini
+GOOGLE_API_KEY=<gemini-api-key>
+```
+
+3. Create virtual environment and install dependencies.
+
+```bash
 $ python3 -m venv .venv
 
 $ source .venv/bin/activate # For Windows: .venv\Scripts\activate
 
 $ pip install -r requirements.txt
+```
+   
+4. Run the agent.
 
+``` bash
 $ python main.py
 ```
 
@@ -117,3 +140,7 @@ An **MCP Gateway** is a crucial piece of infrastructure that sits between MCP cl
 3. **Observability:** Monitoring, logging, and tracing of all tool interactions.
    
 4. **Management:** A central place to register, discover, and manage available tools.
+
+## Agent
+
+Supported LLM provider
